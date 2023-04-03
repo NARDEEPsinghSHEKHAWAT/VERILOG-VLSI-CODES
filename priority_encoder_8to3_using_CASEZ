@@ -1,0 +1,16 @@
+module priority_encoder(input [0:7] A, output reg [2:0] Y);
+
+  always @*
+    casez(A)
+       8'b10000000 : Y =3'b000;
+       8'bz1000000 : Y =3'b001 ;
+       8'bzz100000 : Y =3'b010 ;
+       8'bzzz10000 : Y =3'b011 ;
+       8'bzzzz1000 : Y =3'b100 ;
+       8'bzzzzz100 : Y =3'b101;
+       8'bzzzzzz10 : Y =3'b110 ;
+       8'bzzzzzzz1 : Y =3'b111;
+      default : Y = 3'b000;
+    endcase
+
+endmodule
