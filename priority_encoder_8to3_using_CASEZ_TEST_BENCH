@@ -1,0 +1,21 @@
+
+module p3to8_TB;
+  reg[0:7]A;
+  wire[2:0]Y;
+  priority_encoder p1( A,  Y);
+ initial begin
+    A = 8'b11101010; #2;
+    A = 8'b01010100; #2;
+    A = 8'b00100111; #2;
+    A = 8'b11001101; #2;
+    A = 8'b11111110; #2;
+    A = 8'b00000000; #2;
+ end
+  initial begin
+   $monitor("Sim Time: %t",$time);
+  end
+  initial begin
+   $dumpfile("dump.vcd");
+   $dumpvars;
+  end
+endmodule
